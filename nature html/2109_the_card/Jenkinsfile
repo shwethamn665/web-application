@@ -1,0 +1,27 @@
+pipeline { 
+    agent any 
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+stage('change directory')
+{
+step{
+sh'cd ../../var/www/html/'
+    }
+}
+stage('clean the workspace') { 
+            steps { 
+                sh 'rm -r *' 
+            }
+                              }
+        stage('git scm clone') { 
+            steps { 
+                sh 'git clone https://gitlab.com/vinodhmaruthi2000/nature-html-for-jenkins.git -b master' 
+                  }
+                                }
+            }
+      
+~
+~
+
